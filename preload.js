@@ -1,0 +1,2 @@
+const {contextBridge,ipcRenderer}=require("electron");
+contextBridge.exposeInMainWorld("LifeOSNative",{paths:()=>ipcRenderer.invoke("paths"),openFolder:x=>ipcRenderer.invoke("open",x),saveJSON:x=>ipcRenderer.invoke("json",x),saveTXT:x=>ipcRenderer.invoke("txt",x),saveXLSX:x=>ipcRenderer.invoke("xlsx",x),saveDOCX:x=>ipcRenderer.invoke("docx",x)});

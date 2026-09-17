@@ -1,0 +1,47 @@
+{
+  "name": "mojebh-lifeos",
+  "version": "1.0.0",
+  "description": "LifeOS standalone Windows 64-bit desktop app",
+  "main": "main.js",
+  "scripts": {
+    "dist": "electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "com.mojebh.lifeos",
+    "productName": "LifeOS",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "LifeOS.html",
+      "main.js",
+      "preload.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "LifeOS"
+    }
+  },
+  "devDependencies": {
+    "electron": "38.0.0",
+    "electron-builder": "26.0.12"
+  },
+  "dependencies": {
+    "docx": "9.5.1",
+    "xlsx": "0.18.5"
+  }
+}
